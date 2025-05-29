@@ -2,16 +2,12 @@ import discord
 from discord.ext import commands
 import aiohttp
 import re
-import os 
+import os
 
-# <<< À REMPLIR : ton token Discord
-TOKEN
-
-# <<< À REMPLIR : ta clé Google Safe Browsing
-GOOGLE_API_KEY = 
-
-# <<< À REMPLIR : ton ID utilisateur
-USER_ID = 
+# Récupération des variables d'environnement
+TOKEN = os.getenv("DISCORD_TOKEN")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+USER_ID = int(os.getenv("USER_ID"))
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -76,4 +72,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Lancement du bot
-bot.run(os.getenv("TOKEN"))
+bot.run(TOKEN)
