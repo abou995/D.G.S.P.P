@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import aiohttp
 import re
+import os 
 
 # <<< À REMPLIR : ton token Discord
 TOKEN
@@ -75,4 +76,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Lancement du bot
-bot.run(TOKEN)
+bot.run(os.getenv("TOKEN"))
